@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {RefObject, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import MapViewDirections from 'react-native-maps-directions';
 import MapView, {PROVIDER_GOOGLE, Region, LatLng} from 'react-native-maps';
@@ -10,7 +9,7 @@ import {OriginMarker} from './OriginMarker';
 type OrderDeliveryMapProps = {
   mapRegion: Region | undefined;
   destination: LatLng;
-  origin: LatLng;
+  origin?: LatLng;
   updateOrigin: (loc: LatLng) => void;
   updateDuration: (duration: number) => void;
 };
@@ -18,7 +17,7 @@ type OrderDeliveryMapProps = {
 export const OrderDeliveryMap = ({
   mapRegion,
   destination,
-  origin,
+
   updateOrigin,
   updateDuration,
 }: OrderDeliveryMapProps) => {
@@ -67,6 +66,13 @@ export const OrderDeliveryMap = ({
     mapView.current?.animateToRegion(mapRegion as Region, 200);
   }, [mapRegion]);
 
+  const originTest = {
+    latitude: 15.846812,
+    longitude: 80.89134,
+    latitudeDelta: 0.0622,
+    longitudeDelta: 0.0421,
+  };
+
   return (
     <MapView
       ref={mapView}
@@ -74,7 +80,7 @@ export const OrderDeliveryMap = ({
       initialRegion={mapRegion}
       style={styles.container}>
       <MapViewDirections
-        origin={origin}
+        origin={originTest}
         destination={destination}
         apikey={GOOGLE_API_KEY}
         strokeWidth={5}
@@ -83,7 +89,7 @@ export const OrderDeliveryMap = ({
         onReady={result => onReady(result)}
       />
       <DestinationMarker coordinate={destination} />
-      <OriginMarker coordinate={origin} angle={angle} />
+      <OriginMarker coordinate={originTest} angle={angle} />
     </MapView>
   );
 };

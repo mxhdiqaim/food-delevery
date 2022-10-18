@@ -1,4 +1,4 @@
-package com.fooddeleveryapp.newarchitecture.components;
+package com.mxhdiqaim.fooddelivery.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
