@@ -26,7 +26,7 @@ export const HomeRestaurantItem = ({
         />
         {/* Restaurant average delivery duration */}
         <View style={styles.itemLabel}>
-          <Text style={{...FONTS.h4}}>{item.duration}</Text>
+          <Text style={{...FONTS.h4, color: '#000'}}>{item.duration}</Text>
         </View>
       </View>
       {/* Restaurant name */}

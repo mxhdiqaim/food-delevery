@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -54,7 +55,7 @@ export const Tabs = () => {
                 style={{
                   width: 25,
                   height: 25,
-                  tintColor: focused ? COLORS.primary : COLORS.secondary,
+                  tintColor: focused ? COLORS.primary : COLORS.black,
                 }}
               />
             ),
